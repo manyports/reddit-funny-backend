@@ -8,8 +8,8 @@
     "start": "node server.ts"
   },
   "scripts": {
-    "build": "tsc",
-    "start": "node server.js",
+    "build": "npm run build",
+    "start": "ts-node server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
