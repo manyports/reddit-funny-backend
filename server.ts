@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import { handleRequest } from '.,/../../backend/api/startCron';
+import { handleRequest } from './api/startCron';
 
 const app = express();
 const port = process.env.PORT || 8080; 
