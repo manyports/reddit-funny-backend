@@ -4,11 +4,11 @@ import { Post } from '../types/Post';
 
 let cachedPosts: Post[] = [];
 
-cron.schedule('* 30 * * *', async () => {
+cron.schedule('*/10 * * * * *', async () => {
   cachedPosts = await fetchRedditPosts('funny');
   console.log('Fetched latest posts from r/funny');
 });
 
 export function getCachedPosts(){
-    cachedPosts;
+    return cachedPosts;
 }

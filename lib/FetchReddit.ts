@@ -16,12 +16,12 @@ export async function fetchRedditPosts(subreddit: string): Promise<Post[]> {
 
   while (posts.length < 10) {
     try {
-      const response: AxiosResponse<any> = await axios.get(`https://www.reddit.com/r/${subreddit}/top.json?limit=100`, {
+      const response: AxiosResponse<any> = await axios.get(`https://www.reddit.com/r/${subreddit}/new.json?limit=100`, {
         params: { after },
       });
 
       const imagePosts: Post[] = response.data.data.children
-        .filter((post: any) => post.data.url.includes('i.redd.it'))
+        .filter((post: any) => post.data.url.includes('i.redd.it')) 
         .map((post: any) => ({
           id: post.data.id,
           title: post.data.title,
