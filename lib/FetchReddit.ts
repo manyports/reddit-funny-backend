@@ -20,10 +20,8 @@ export async function fetchRedditPosts(subreddit: string): Promise<Post[]> {
         params: { after },
       });
 
-      console.log('Reddit API response:', response.data); 
-
       const imagePosts: Post[] = response.data.data.children
-        .filter((post: any) => post.data.url.includes('i.redd.it'))
+        .filter((post: any) => post.data.url.includes('i.redd.it')) 
         .map((post: any) => ({
           id: post.data.id,
           title: post.data.title,
@@ -42,6 +40,5 @@ export async function fetchRedditPosts(subreddit: string): Promise<Post[]> {
     }
   }
 
-  console.log('Filtered posts:', posts); 
   return posts.slice(0, 10);
 };
